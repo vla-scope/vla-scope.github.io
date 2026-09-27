@@ -4,7 +4,7 @@
 
 Kaiwen Zhu, Dongfang Liu, and Liangkai Liu
 
-[Paper](https://arxiv.org/abs/2609.21246)
+[Project website](https://vla-scope.github.io/) · [Paper](https://arxiv.org/abs/2609.21246)
 
 VLA-Scope connects initial input-shift characterization with failure prediction from partial executions. It combines predicted OOD type, action-prefix features, and cumulative execution-step representations while keeping the underlying VLA policy frozen.
 
