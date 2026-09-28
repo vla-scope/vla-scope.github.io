@@ -10,7 +10,7 @@ h1{font-size:45px;font-weight:650;line-height:1.16;letter-spacing:-1.4px;margin:
 .publication-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:22px}
 .resource{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#363636;color:#fff;border-radius:999px;height:40px;padding:0 18px;font-size:16px;line-height:1}.resource:hover{background:#222;text-decoration:none}
 .resource svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.release-note{color:#777;font-size:12px;margin:10px 0 0}
+.teaser video{pointer-events:none}
 .container{width:calc(100% - 48px);max-width:1000px;margin:0 auto}.text-container{width:calc(100% - 48px);max-width:850px;margin:auto}
 .teaser{padding:8px 0 38px}video{display:block;width:100%;aspect-ratio:16/9;background:#f4f7fa}
 .teaser-text{text-align:center;font-size:21px;line-height:1.5;margin:22px auto 0;max-width:960px}
