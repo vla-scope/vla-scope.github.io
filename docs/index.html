@@ -8,7 +8,7 @@
   <title>VLA-Scope: Shift-Aware Failure Prediction for Vision-Language-Action Models</title>
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/nerfies.css">
-  <link rel="stylesheet" href="style.css?v=nerfies-20260928">
+  <link rel="stylesheet" href="style.css?v=insights-20260928">
 </head>
 <body>
 <header class="hero publication-header">
@@ -30,7 +30,7 @@
 <main>
   <section class="hero teaser container" id="overview" aria-label="Project overview">
     <div class="hero-body">
-    <video autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="assets/overview-poster.png" aria-label="Looping VLA-Scope method animation, ending at the Failure Risk Predictor"><source src="assets/overview.mp4?v=method-only" type="video/mp4"></video>
+    <video autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="assets/overview-poster.png" aria-label="Looping VLA-Scope method animation, ending at the Failure Risk Predictor"><source src="assets/overview.mp4?v=insights-20260928" type="video/mp4"></video>
     <p class="teaser-text"><strong>VLA-Scope</strong> characterizes initial input shifts and predicts failure from partial executions by combining shift context, action-prefix features, and cumulative execution-step representations.</p>
     </div>
   </section>
@@ -49,8 +49,9 @@
       <div class="bar-row"><span>Light</span><div class="bar-track"><div style="width:31.5%"></div></div><b>31.5</b></div>
       <div class="bar-row"><span>Background</span><div class="bar-track"><div style="width:28.5%"></div></div><b>28.5</b></div>
       <div class="bar-row"><span>Layout</span><div class="bar-track"><div style="width:27.5%"></div></div><b>27.5</b></div>
-      <figcaption>200 rollouts per category. These rates describe the sampled perturbations, not universal failure probabilities.</figcaption>
+      <figcaption>Observed failure rates; 200 rollouts per category.</figcaption>
     </figure>
+    <p><strong>Shift type provides context for failure prediction.</strong> VLA-Scope passes the predicted OOD category to the risk predictor alongside execution evidence. In the action/type ablation at 60 actions, adding predicted type improves ROC-AUC from 0.7756 to 0.7906 over actions alone.</p>
   </section>
   <section class="container section" id="method">
     <h2>VLA-Scope: From Input Shifts to Failure Risk</h2>
@@ -60,7 +61,8 @@
       <li><strong>OOD Characterizer.</strong> At initialization, pooled image and language representations are used for ID/OOD detection and OOD type classification. The predicted category remains fixed within a rollout.</li>
       <li><strong>Failure Risk Predictor.</strong> During execution, 14 action-prefix features, a seven-dimensional predicted-type encoding, and a 32-dimensional cumulative representation are combined into a shared logistic regression model. Risk is updated from action 10 onward using only the available execution history.</li>
     </ul>
-    <p>The cumulative representation averages execution-step representations from step 10 to the current step, followed by training-fitted standardization and PCA. Output scores are not temporally smoothed. Under gated operation, an ID decision returns no failure-risk score; it does not imply task success.</p>
+    <p><strong>Risk is assessed while execution is still in progress.</strong> At each scoring step, VLA-Scope combines the actions executed so far with representations of the observations and instruction accumulated from step 10. It predicts the eventual outcome from this partial history, without waiting for the rollout to finish or using future observations.</p>
+    <p>The cumulative representation is standardized and compressed with training-fitted PCA before prediction; output scores are not temporally smoothed. Under gated operation, an ID decision returns no failure-risk score; it does not imply task success.</p>
   </section>
   <section class="container section" id="experiments">
     <h2>Experiments</h2>
