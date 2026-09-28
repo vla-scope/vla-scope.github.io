@@ -10,7 +10,7 @@ VLA-Scope connects initial input-shift characterization with failure prediction 
 
 ## Repository status
 
-This repository currently contains the project website and demonstration videos. Research code has not yet been released.
+This repository contains only the project website and demonstration videos. The main project repository is [vla-scope/Scope](https://github.com/vla-scope/Scope). Research code has not yet been released.
 
 ## Website
 
