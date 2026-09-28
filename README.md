@@ -22,4 +22,10 @@ To preview locally, run `python -m http.server 8000 --bind 127.0.0.1 --directory
 
 The videos show selected illustrative cases, not an unbiased sample of performance. Risk scores are unchanged. Success/Failure labels indicate final rollout outcomes; colored borders indicate current risk relative to the 0.5 threshold.
 
-The website's overall presentation was inspired by the [SAFE project page](https://vla-safe.github.io/), with original HTML and CSS.
+## Website template and license
+
+The website is adapted from [Nerfies](https://github.com/nerfies/nerfies.github.io), revision `657409a62d59a93163872c0e4921cf651b987810`.
+It reuses the template's Bulma-based hero/column layout, publication title and author structure, teaser structure, footer structure, and a trimmed subset of its `static/css/index.css` in `docs/static/css/nerfies.css`.
+VLA-Scope content, responsive styling, tables, and local videos replace the original demonstrations. The custom stylesheet preserves our existing page dimensions and typography. No Nerfies analytics, JavaScript, or research media are included.
+
+The adapted website template (HTML and custom CSS) is distributed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/). Bulma 0.9.1 retains its MIT license; see `docs/static/css/BULMA-LICENSE.txt`. The website-template license does not relicense the paper, research figures, videos, or the separate Scope research-code repository.
