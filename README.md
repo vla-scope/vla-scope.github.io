@@ -1,31 +1,29 @@
-# VLA-Scope
+# VLA-Scope Project Website
 
-**Shift-Aware Failure Prediction for Vision-Language-Action Models**
+Source for [vla-scope.github.io](https://vla-scope.github.io/).
+The research-code repository is [vla-scope/Scope](https://github.com/vla-scope/Scope).
 
-Kaiwen Zhu, Dongfang Liu, and Liangkai Liu
+## Editing and deployment
 
-[Project website](https://vla-scope.github.io/) · [Paper](https://arxiv.org/abs/2609.21246)
+- `docs/index.html`: page content.
+- `docs/style.css`: custom styling.
+- `docs/assets/`: figures, videos, and paper PDF.
+- `docs/static/`: template styles and third-party license notices.
 
-VLA-Scope connects initial input-shift characterization with failure prediction from partial executions. It combines predicted OOD type, action-prefix features, and cumulative execution-step representations while keeping the underlying VLA policy frozen.
+GitHub Pages publishes `docs/` from the `main` branch. No build step is required.
 
-## Repository status
+## Local preview
 
-This repository contains only the project website and demonstration videos. The main project repository is [vla-scope/Scope](https://github.com/vla-scope/Scope). Research code has not yet been released.
+From the repository root, run:
 
-## Website
+```sh
+python -m http.server 8000 --bind 127.0.0.1 --directory docs
+```
 
-The static website is in `docs/`, including its local images, videos, and paper PDF. GitHub Pages publishes the `docs/` directory from the `main` branch. No build dependencies or external scripts are required.
+Open <http://127.0.0.1:8000/>.
 
-To preview locally, run `python -m http.server 8000 --bind 127.0.0.1 --directory docs` and visit `http://127.0.0.1:8000/`.
+## Attribution and license
 
-## Demonstrations
+Adapted from the [Nerfies website template](https://github.com/nerfies/nerfies.github.io/tree/657409a62d59a93163872c0e4921cf651b987810), with VLA-Scope content and custom layout styling. The adapted HTML and CSS are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Bulma retains its [MIT license](docs/static/css/BULMA-LICENSE.txt).
 
-The videos show selected illustrative cases, not an unbiased sample of performance. Risk scores are unchanged. Success/Failure labels indicate final rollout outcomes; colored borders indicate current risk relative to the 0.5 threshold.
-
-## Website template and license
-
-The website is adapted from [Nerfies](https://github.com/nerfies/nerfies.github.io), revision `657409a62d59a93163872c0e4921cf651b987810`.
-It reuses the template's Bulma-based hero/column layout, publication title and author structure, teaser structure, footer structure, and a trimmed subset of its `static/css/index.css` in `docs/static/css/nerfies.css`.
-VLA-Scope content, responsive styling, tables, and local videos replace the original demonstrations. The custom stylesheet preserves our existing page dimensions and typography. No Nerfies analytics, JavaScript, or research media are included.
-
-The adapted website template (HTML and custom CSS) is distributed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/). Bulma 0.9.1 retains its MIT license; see `docs/static/css/BULMA-LICENSE.txt`. The website-template license does not relicense the paper, research figures, videos, or the separate Scope research-code repository.
+These template licenses do not cover the paper, research figures, videos, or the separate research-code repository.
